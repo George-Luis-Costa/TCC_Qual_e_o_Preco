@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0B0C0C;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.labels_label--format {
+    position: absolute;
+    text-align: center;
+    left: 10%;
+}
+
+img {
+    margin-top: 5%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+}
+
+.tela-box {
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    padding: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(95, 95, 95, 0.1);
+    border-radius: 20px;
+}
+
+.titulo_login,
+.titulo_cadastro {
+    background-color: grey;
+    color: aliceblue;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.formulario {
+    position: relative;
+    left: 0%;
+    background-color: grey;
+    color: aliceblue;
+    text-align: center;
+    border-radius: 20px;
+    height: 250px;
+}
+
+.inputs_cadastro {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.input-login {
+    position: absolute;
+    padding: 10px 15px;
+    width: 320px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.input-cadastro {
+    position: relative;
+    width: 250px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-top: 5px;
+
+}
+
+#senha {
+    margin-top: 10px;
+}
+
+.button_default {
+    position: absolute;
+    left: 260px;
+    width: 75px;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 5px;
+    transform: translate(50%);
+    box-shadow: 10px 5px 5px black;
+}
+
+.attach_button {
+    position: relative;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    transform: translate(50%, -50%);
+    top: 50%;
+    box-shadow: 10px 5px 5px black;
+}
+
+.transitionBg {
+    transition: background-color 500ms, transform 500ms;
+}
+
+.button_bg:hover{
+    background-color: rgb(79, 27, 126);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(79, 27, 126);
+    cursor: pointer;
+    transform: scale(1.2);
+    transform: translate(50%, -30%);
+}
+
+.button_submit {
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 10px 5px 5px black;
+    position: relative;
+    margin-top: 5px;
+}
+
+input::placeholder {
+    color: rgb(95, 95, 95);
+}
+
+#input_avatar {
+    display: none;
+}
+
+label[for="input_avatar"] {
+    position: inherit;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px black;
+
+}
+
+.footer_index--sign {
+    display: flex;
+    position: absolute;
+    width: 320px;
+    height: 80px;
+    bottom: 0;   
+    
+}
+
+footer p {
+    margin-top: 5px;
+    position: absolute;
+    left: 20%;
+    color: aliceblue;
+    text-shadow: 2px 2px #0B0C0C;
+}
+
+.icon_top {
+    position: absolute;
+    left: 10%;
+
+}
+
+.anexar_cadastro {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: 110%;
+}
+
+.button-signUp {
+    margin: 0;
+    left: 45%;
+}
+
+.create_account {
+    position: relative;
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 60%;
+    padding: 5px;
+    background-color: rgb(86, 86, 86);
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.cadastro_link--submit{
+    text-decoration: none;
+    background-color: rgb(60, 60, 60);
+    color: red;
+    border: 1px solid black;
+    padding:1px 3px;
+    border-radius: 15px;
+}
+
+.input_submit--criarConta{
+    background-color: rgb(60, 60, 60);
+    color: rgb(229, 229, 229);
+
+}
+
+/*Link não visitado */
+a:link {
+    color: green;
+    text-decoration: none;
+  }
+  
+  /*Link já visitado*/
+  a:visited {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  /*Quando o mouse passa por cima*/
+  a:hover { 
+    color: rgb(79, 27, 126);
+    text-decoration: none;
+  }
+  
+  /*Link ativo/selecionado*/
+  a:active {
+    color: yellow;
+    text-decoration: none;
+  }

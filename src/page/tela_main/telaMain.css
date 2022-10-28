@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0B0C0C;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.tela-box {
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    padding: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(95, 95, 95, 0.1);
+    border-radius: 20px;
+}
+
+.conteiner_sources {
+    position: relative;
+    font-size: small;
+}
+
+.footer_main {
+    position: relative;
+    background-color: aliceblue;
+    color: #0B0C0C;
+    position: relative;
+    font-size: 8px;
+}
+
+.section__div__information {
+    font-size: 9px;
+    background-color: blueviolet;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.section__div__access {
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 20px 30px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.section__access__h1{
+    font-size: 20px;
+}
+.section__access__h2{
+    font-size: 15px;
+}
+
+
+.section__div__view {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.section__information--align-header {
+    display: flex;
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+}
+
+.section__information--align {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section__view--align {
+    display: flex;
+    flex-flow: column;
+    /* max-width: 60%; */
+    /* margin-right: 50%; */
+}
+
+.section__view__button {
+    /* position: relative;
+    left: 100%;
+    top: 10%;
+    transform: translate(-100%); */
+    border-radius: 15px;
+    padding: 5px;
+    height: 30px;
+    border: none;
+    background-color: #BABBA1;
+    box-shadow: 7px 5px 5px black;
+    font-weight: bold
+}
+
+.round {
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10%;
+    width: 10%;
+}
+
+.section__img--align {
+    width: 100%;
+}
+
+.section__information__img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.section__information__img--align {
+    position: relative;
+    left: 50%;
+    transform: translate(-25%);
+}
+
+/*Link não visitado */
+a:link {
+    color: green;
+    text-decoration: none;
+}
+
+/*Link já visitado*/
+a:visited {
+    color: rgb(0, 0, 85);
+    text-decoration: none;
+}
+
+/*Quando o mouse passa por cima*/
+a:hover {
+    color: rgb(79, 27, 126);
+    text-decoration: none;
+}
+
+/*Link ativo/selecionado*/
+a:active {
+    color: yellow;
+    text-decoration: none;
+}
