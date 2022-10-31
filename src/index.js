@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Search from './page/search_produto/search'
+import App from './App'
+// import Search from './page/search_produto/search'
 // import Dia from './page/busca_do_dia/dia'
 // import Semana from './page/busca_da_semana/semana'
 // import TelaLogin from './page/tela_login/telaLogin'
@@ -10,7 +11,7 @@ import Search from './page/search_produto/search'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Search />
+    <App />
   </React.StrictMode>
 );
 
