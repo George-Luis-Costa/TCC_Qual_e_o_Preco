@@ -212,25 +212,25 @@ footer p {
 
 }
 
-/*Link não visitado */
+
 a:link {
     color: green;
     text-decoration: none;
   }
   
-  /*Link já visitado*/
+
   a:visited {
     color: blue;
     text-decoration: none;
   }
   
-  /*Quando o mouse passa por cima*/
+
   a:hover { 
     color: rgb(79, 27, 126);
     text-decoration: none;
   }
   
-  /*Link ativo/selecionado*/
+
   a:active {
     color: yellow;
     text-decoration: none;

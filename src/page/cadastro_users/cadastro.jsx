@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-import './style.css'
+import '../cadastro_users/style.css'
 import SearchIcon from '../../assets/search.svg'
 import perfil from '../../images/perfil.png'
 
@@ -63,8 +64,8 @@ const Cadastro = () => {
                 </footer>
 
                 <div className="create_account">
-                    <a href="/index.html" title="Voltar para o menu anterior" className="cadastro_link--submit">Voltar</a>
-                    <br/>
+                    <Link to="/" title="Voltar para o menu anterior" className="cadastro_link--submit">Voltar</Link>
+                    <br />
                     <input type="submit" defaultValue="Criar Conta" className="button_submit button_bg transitionBg input_submit--criarConta" title="Ao clicar seus dados serão enviados" />
                 </div>
 

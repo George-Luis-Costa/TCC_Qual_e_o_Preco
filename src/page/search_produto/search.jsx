@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
-import './style.css'
+import '../search_produto/style.css'
 import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`

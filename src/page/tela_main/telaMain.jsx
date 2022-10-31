@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-import './telaMain.css'
+import '../tela_main/telaMain.css'
 
 //imagens
 import SearchIcon from '../../assets/search.svg'
@@ -47,7 +48,7 @@ const TelaMain = () => {
               <h2 className="section__access__h2">Promoção do dia</h2>
             </div>
             <button className="section__view__button">
-              <a href="/Screens/promo_dia.html">visualizar</a>
+              <Link to="/Dia">visualizar</Link>
             </button>
           </div>
 
@@ -57,7 +58,7 @@ const TelaMain = () => {
               <h2 className="section__access__h2">Promoção do semanal</h2>
             </div>
             <button className="section__view__button">
-              <a href="/Screens/promo_semana.html">visualizar</a>
+              <Link to="/Semana">visualizar</Link>
             </button>
           </div>
 
@@ -66,9 +67,9 @@ const TelaMain = () => {
               <h1>Pesquisar Anúncios</h1>
             </div>
             <div className="round">
-              <a href="/Screens/pesquisar_anúncios.html">
+              <Link to="/Search">
                 <img className="section__img--align" src={entrar} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -77,9 +78,9 @@ const TelaMain = () => {
               <h1>Adicionar Anúncios</h1>
             </div>
             <div className="round">
-              <a href="/Screens/add_anúncios.html">
+              <Link to="#">
                 <img className="section__img--align" src={entrar} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
