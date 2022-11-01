@@ -60,12 +60,7 @@ const Home = () => {
                         </div>
                         // <div className='container'>
                         //     <Card ads = {obj}/>
-                        //     <Card ads = {obj}/>
-                        //     <Card ads = {obj}/>
-                        //     <Card ads = {obj}/>
-                        //     <Card ads = {obj}/>
-                        //     <Card ads = {obj}/>
-                        // </div>
+                        
                     )
             }
         </div>

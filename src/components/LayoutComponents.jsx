@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./LayoutComponents.css";
 export const LayoutComponents = (props) => {
   return (
     <div className="container">
