@@ -136,9 +136,10 @@ body, html {
   background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
   background: -o-linear-gradient(to left, #21d4fd, #b721ff);
   background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
-  background: linear-gradient(to left, #21d4fd, #b721ff);
+  background: linear-gradient(to left, #2154fd, #b721ff);
 }
-
+/* rgba(249, 211, 180, 1) 0%,
+      rgba(249, 211, 180, 0) 130% */
 .login-form-btn:hover {
   cursor: pointer;
 }
