@@ -23,6 +23,7 @@ export const CadastroProduto = () => {
     const [marca, setMarca] = useState("");
     const [data, setData] = useState("");
     const [endereco, setEndereco] = useState("");
+    const [preco, setPreco] = useState("");
     return (
         <LayoutComponents>
             <form className="login-form">
@@ -70,6 +71,16 @@ export const CadastroProduto = () => {
                         onChange={(e) => setEndereco(e.target.value)}
                     />
                     <span className="focus-input" data-placeholder="Endereço..."></span>
+                </div>
+
+                <div className="wrap-input">
+                    <input
+                        className={preco !== "" ? "has-val input" : "input"}
+                        type="name"
+                        value={preco}
+                        onChange={(e) => setPreco(e.target.value)}
+                    />
+                    <span className="focus-input" data-placeholder="Preço..."></span>
                 </div>
 
                 <div className="container-login-form-btn">
