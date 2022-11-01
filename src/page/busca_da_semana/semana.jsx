@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
-import '../busca_da_semana/style.css'
 import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
@@ -24,7 +23,7 @@ const Semana = () => {
 
     return (
         <div className='app'>
-            <h1>Anúncios da Semana...</h1>
+            <h1 className='h1'>Anúncios da Semana...</h1>
             
             {
                 (ads?.length > 0)

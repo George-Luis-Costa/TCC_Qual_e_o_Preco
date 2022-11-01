@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +7,8 @@
 
 body, html {
   font-family: 'Roboto', sans-serif;
+  background: #0B0C0C;
+  min-height: 100vh;
 }
 
 .login-form {

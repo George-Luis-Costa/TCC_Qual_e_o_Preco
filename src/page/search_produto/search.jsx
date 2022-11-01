@@ -30,7 +30,7 @@ const Home = () => {
 
     return (
         <div className='app'>
-            <h1>Pesquisar...</h1>
+            <h1 className='h1'>Pesquisar...</h1>
             <div className='search'>
                 <input type="text"
                     placeholder='Buscar Produtos'

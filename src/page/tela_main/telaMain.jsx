@@ -26,11 +26,9 @@ const TelaMain = () => {
     <div className="tela-box" style={{ height: '600px' }}>
 
       <header style={{ color: 'aliceblue' }}>
-        <h1 className="titulo_main">Bem - Vindo</h1>
-
+        <h1>Bem - Vindo</h1>
         <br />
-
-        <figure className="icon_top">
+        <figure>
           <img src={perfil} alt="Perfil" width="70px" height="70px" />
         </figure>
       </header>
@@ -78,7 +76,7 @@ const TelaMain = () => {
               <h1>Adicionar Anúncios</h1>
             </div>
             <div className="round">
-              <Link to="#">
+              <Link to="/CadastroProdutos">
                 <img className="section__img--align" src={entrar} />
               </Link>
             </div>
