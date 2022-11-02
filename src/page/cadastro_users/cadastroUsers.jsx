@@ -62,7 +62,7 @@ const Cadastro = () => {
                     <label htmlFor="password" className="labels_label--format"><strong>Senha:</strong>
                     </label>
                     <br />
-                    <input type="text" name="password" id="password" onChange={handleChange} className="input-cadastro" required />
+                    <input type="password" name="password" id="password" onChange={handleChange} className="input-cadastro" required />
                     <br /><br />
 
                 </div>
