@@ -11,58 +11,62 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const Cadastro = () => {
 
-    const [ads, setAds] = useState([])
-    const [buscaTermo, setBuscaTermo] = useState([])
+    const [data, setData] = useState({})
 
-    const searchData = async (title) => {
-        const response = await fetch(`${API_URL}${title}`, { method: 'GET' })
-        const data = await response.json()
-        setAds(data)
+    function createUser(user) {
+        fetch(API_URL + "/user", {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify(user),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
+    }
+
+    const submit = (e) => {
+        e.preventDefault()
+        createUser(data)
+    }
+
+    function handleChange(e) {
+        setData({ ...data, [e.target.id]: e.target.value})
         console.log(data)
     }
-    useEffect(() => {
-        searchData(`/product`)
-
-    }, [])
 
     return (
         <div className="tela-box" style={{ height: '600px' }}>
             <h1 className="titulo_cadastro">SIGN UP</h1>
             <br /><br />
 
-            <form style={{ color: 'aliceblue' }} className="formulario">
+            <form onSubmit={submit} style={{ color: 'aliceblue' }} className="formulario">
 
                 <div className="inputs_cadastro">
                     <label htmlFor="nome" className="labels_label--format"><strong>Nome:</strong></label>
                     <br />
-                    <input type="text" name="nome" id="nome" className="input-cadastro" required />
+                    <input type="text" name="nome" id="name" onChange={handleChange} className="input-cadastro" required />
                     <br />
                     <label htmlFor="sobrenome" className="labels_label--format"><strong>Sobrenome:</strong>
                     </label>
                     <br />
-                    <input type="text" name="sobrenome" id="sobrenome" className="input-cadastro" required />
+                    <input type="text" name="sobrenome" id="last_name" onChange={handleChange} className="input-cadastro" required />
                     <br />
                     <label htmlFor="email" className="labels_label--format"><strong>Email:</strong>
                     </label>
                     <br />
-                    <input type="text" name="email" id="email" className="input-cadastro" required />
+                    <input type="text" name="email" id="email" onChange={handleChange} className="input-cadastro" required />
                     <br />
                     <label htmlFor="password" className="labels_label--format"><strong>Senha:</strong>
                     </label>
                     <br />
-                    <input type="text" name="password" id="password" className="input-cadastro" required />
+                    <input type="password" name="password" id="password" onChange={handleChange} className="input-cadastro" required />
                     <br /><br />
 
                 </div>
-
-                <footer className="anexar_cadastro">
-                    <figure>
-                        <img src={perfil} alt="Perfil" width="70px" height="70px" />
-                    </figure>
-                    <label htmlFor="input_avatar" className="button transitionBg" title="Adicione algum arquivo de imagem (png ou jpeg)">Selecione a Foto de Perfil</label>
-                    <input type="file" id="input_avatar" name="input_avatar" accept="image/png, image/jpeg" /><br /><br />
-                </footer>
-
+                
                 <div className="create_account">
                     <Link to="/" title="Voltar para o menu anterior" className="cadastro_link--submit">Voltar</Link>
                     <br />
