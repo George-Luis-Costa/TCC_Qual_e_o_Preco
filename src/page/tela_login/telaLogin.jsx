@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-// import '../tela_login/telaLogin.css'
+import '../tela_login/telaLogin.css'
 import SearchIcon from '../../assets/search.svg'
 import images from '../../images/icon_login.png'
 
