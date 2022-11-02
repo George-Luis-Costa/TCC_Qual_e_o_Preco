@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-import '../cadastro_users/style.css'
 import SearchIcon from '../../assets/search.svg'
 import perfil from '../../images/perfil.png'
 
