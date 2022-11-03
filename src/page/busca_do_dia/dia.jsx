@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
 import { Link } from "react-router-dom"
-import SearchIcon from '../../assets/search.svg'
+//import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
@@ -9,17 +9,21 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 const Dia = () => {
 
     const [ads, setAds] = useState([])
-    const [buscaTermo, setBuscaTermo] = useState([])
 
-    const searchData = async (title) => {
-        const response = await fetch(`${API_URL}${title}`, { method: 'GET' })
-        const data = await response.json()
-        setAds(data)
-        console.log(data)
-    }
     useEffect(() => {
-        searchData(`/product`)
-
+        
+      fetch(API_URL + "/product/day", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setAds(data)
+      })
+      .catch((err) => console.log(err))
+        
     }, [])
 
     return (
@@ -36,8 +40,11 @@ const Dia = () => {
                 (ads?.length > 0)
                     ? (
                         <div className='container'>
-                            {ads.map((ads) => (
-                                <Card ads={ads} />
+                            {ads.map((ads) => (   
+                                <Card 
+                                    ads={ads} 
+                                    key = {ads._id.$oid}
+                                />
                             ))}
                         </div>
                     ) : (

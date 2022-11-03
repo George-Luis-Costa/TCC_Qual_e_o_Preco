@@ -7,16 +7,6 @@ import perfil from '../../images/perfil.png'
 
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
-// const searchData = async (title) => {
-//     const response = await fetch(`${API_URL}${title}`, { method: 'POST' })
-//     const data = await response.json()
-//     setAds(data)
-//     console.log(data)
-// }
-// useEffect(() => {
-//     // searchData(`/product`)
-
-// }, [])
 
 export const CadastroProduto = () => {
     const [name, setName] = useState("");
@@ -24,9 +14,36 @@ export const CadastroProduto = () => {
     const [data, setData] = useState("");
     const [endereco, setEndereco] = useState("");
     const [preco, setPreco] = useState("");
+
+    function createProduct(product) {
+        fetch(API_URL + "/product", {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify(product),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
+    const submit = (e) => {
+       const product = {
+            "name": name,
+            "brand": marca,
+            "price": preco,
+            "address": endereco,
+            "post_date": data,
+        }
+        e.preventDefault()
+        createProduct(product)
+    }
+
     return (
         <LayoutComponents>
-            <form className="login-form">
+            <form onSubmit={submit} className="login-form">
                 <span className="login-form-title"> Adicionar Produto </span>
                 <br />
                 {/* <span className="login-form-title">
