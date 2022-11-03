@@ -11,6 +11,7 @@
     transform: translate(-50%);
 }
 
+
 .tela-box {
     width: 420px;
     height: 420px;
@@ -94,7 +95,7 @@
     transition: background-color 500ms, transform 500ms;
 }
 
-.button_bg:hover{
+.button_bg:hover {
     background-color: rgb(79, 27, 126);
     cursor: pointer;
 }
@@ -140,8 +141,8 @@ label[for="input_avatar"] {
     position: absolute;
     width: 320px;
     height: 80px;
-    bottom: 0;   
-    
+    bottom: 0;
+
 }
 
 .footerP {
@@ -185,16 +186,16 @@ label[for="input_avatar"] {
     /* box-shadow: 10px 5px 5px black; */
 }
 
-.cadastro_link--submit{
+.cadastro_link--submit {
     text-decoration: none;
     background-color: rgb(60, 60, 60);
     color: red;
     border: 1px solid black;
-    padding:1px 3px;
+    padding: 1px 3px;
     border-radius: 15px;
 }
 
-.input_submit--criarConta{
+.input_submit--criarConta {
     background-color: rgb(60, 60, 60);
     color: rgb(229, 229, 229);
 

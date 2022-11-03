@@ -27,10 +27,13 @@ const TelaMain = () => {
 
       <header style={{ color: 'aliceblue' }}>
         <h1>Bem - Vindo</h1>
-        <br />
+        
         <figure>
           <Link to={"/"}>
-          <img src={perfil} alt="Perfil" width="70px" height="70px" />
+            <div className='hover-image'>
+              <img className='img' src={perfil} alt="Perfil" title='Voltar para a tela de Login' width="70px" height="70px" />
+              <span class="texto">Voltar ao Login</span>
+            </div>
           </Link>
         </figure>
       </header>

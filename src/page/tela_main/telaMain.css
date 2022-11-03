@@ -10,6 +10,35 @@
     border-radius: 20px;
 }
 
+.hover-image {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: auto;
+}
+
+.hover-image span {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 200px;
+    width: 100%;
+    line-height: 45px;
+    height: 45px;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    font-family: "Roboto";
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.hover-image:hover span {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+}
 .conteiner_sources {
     position: relative;
     font-size: small;
