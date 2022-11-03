@@ -29,7 +29,9 @@ const TelaMain = () => {
         <h1>Bem - Vindo</h1>
         <br />
         <figure>
+          <Link to={"/"}>
           <img src={perfil} alt="Perfil" width="70px" height="70px" />
+          </Link>
         </figure>
       </header>
 
