@@ -36,7 +36,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  width: fit-content;
+  /* width: fit-content; */
+  text-align: center;
 }
 
 .search {
