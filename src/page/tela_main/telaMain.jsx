@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import Card from '../../components/Card'
+//import Card from '../../components/Card'
 import '../tela_main/telaMain.css'
 
 //imagens
-import SearchIcon from '../../assets/search.svg'
+//import SearchIcon from '../../assets/search.svg'
 import perfil from '../../images/perfil.png'
 import entrar from '../../images/entrar.png'
 import Totais from '../../images/Totais.png'
@@ -22,6 +22,24 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const TelaMain = () => {
 
+  const [info, setInfo] = useState([])
+
+  useEffect(() => {
+      
+    fetch(API_URL + "/product/info", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      setInfo(data)
+    })
+    .catch((err) => console.log(err))
+      
+  }, [])
+
   return (
     <div className="tela-box" style={{ height: '600px' }}>
 
@@ -32,7 +50,7 @@ const TelaMain = () => {
           <Link to={"/"}>
             <div className='hover-image'>
               <img className='img' src={perfil} alt="Perfil" title='Voltar para a tela de Login' width="70px" height="70px" />
-              <span class="texto">Sair</span>
+              <span className="texto">Sair</span>
             </div>
           </Link>
         </figure>
@@ -72,7 +90,7 @@ const TelaMain = () => {
             </div>
             <div className="round">
               <Link to="/Search">
-                <img className="section__img--align" src={entrar} />
+                <img alt="entrar" className="section__img--align" src={entrar} />
               </Link>
             </div>
           </div>
@@ -83,7 +101,7 @@ const TelaMain = () => {
             </div>
             <div className="round">
               <Link to="/CadastroProdutos">
-                <img className="section__img--align" src={entrar} />
+                <img alt="entrar" className="section__img--align" src={entrar} />
               </Link>
             </div>
           </div>
@@ -95,7 +113,7 @@ const TelaMain = () => {
           <div className="section__information--align-header">
             <img src={Totais} alt="total" width="30px" height="30px" />
             <h1>Números de Anúncios totais</h1>
-            <h2>XXXX</h2>
+            <h2>{info.total}</h2>
           </div>
 
           <br />
@@ -103,13 +121,13 @@ const TelaMain = () => {
             <div>
               <img className="section__information__img" src={brilho} alt="img" width="30px" height="30px" />
               <h1>Do Dia</h1>
-              <h2 className="section__information__img--align" style={{ transform: 'translate(-45%)' }}>XXXX</h2>
+              <h2 className="section__information__img--align" style={{ transform: 'translate(-45%)' }}>{info.today}</h2>
             </div>
 
             <div>
               <img className="section__information__img" src={semana} alt="img" width="30px" height="30px" />
               <h1>Da Semana</h1>
-              <h2 className="section__information__img--align">XXXX</h2>
+              <h2 className="section__information__img--align">{info.week}</h2>
             </div>
 
           </div>
