@@ -13,7 +13,8 @@ const Card = ({ads}) => {
 
             <div>
                 <span>{ads.brand}</span>
-                <h3>{ads.name} -{">"} R$ {ads.price}</h3>
+                <h3>{ads.name} - R$ {ads.price}</h3>
+                <p>{ads.address}</p>
             </div>
         </div>
     )
