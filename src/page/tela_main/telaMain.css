@@ -133,7 +133,8 @@
 }
 
 .section__information__img--align {
-    position: relative;
-    left: 50%;
-    transform: translate(-25%);
+    position: inherit;
+    /* left: 50%; */
+    transform: translate(45%);
+    font-size: 20px;
 }

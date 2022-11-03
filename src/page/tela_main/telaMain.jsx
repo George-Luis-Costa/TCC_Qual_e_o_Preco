@@ -41,7 +41,7 @@ const TelaMain = () => {
   }, [])
 
   return (
-    <div className="tela-box" style={{ height: '600px' }}>
+    <div className="tela-box" style={{ height: '630px' }}>
 
       <header style={{ color: 'aliceblue' }}>
         <h1 className='h1' style={{fontSize:"40px"}}>Qual é o Preço?</h1>
@@ -113,7 +113,7 @@ const TelaMain = () => {
           <div className="section__information--align-header">
             <img src={Totais} alt="total" width="30px" height="30px" />
             <h1>Números de Anúncios totais</h1>
-            <h2>{info.total}</h2>
+            <h2 style={{fontSize:"20px"}}>{info.total}</h2>
           </div>
 
           <br />
@@ -121,7 +121,7 @@ const TelaMain = () => {
             <div>
               <img className="section__information__img" src={brilho} alt="img" width="30px" height="30px" />
               <h1>Do Dia</h1>
-              <h2 className="section__information__img--align" style={{ transform: 'translate(-45%)' }}>{info.today}</h2>
+              <h2 className="section__information__img--align">{info.today}</h2>
             </div>
 
             <div>
