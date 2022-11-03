@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-import SearchIcon from '../../assets/search.svg'
+//import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const Semana = () => {
 
     const [ads, setAds] = useState([])
-    const [buscaTermo, setBuscaTermo] = useState([])
 
-    const searchData = async (title) => {
-        const response = await fetch(`${API_URL}${title}`, { method: 'GET' })
-        const data = await response.json()
-        setAds(data)
-        console.log(data)
-    }
     useEffect(() => {
-        searchData(`/product`)
-
+        
+      fetch(API_URL + "/product/week", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setAds(data)
+      })
+      .catch((err) => console.log(err))
+        
     }, [])
 
     return (
@@ -36,7 +40,10 @@ const Semana = () => {
                     ? (
                         <div className='container'>
                             {ads.map((ads) => (
-                                <Card ads={ads} />
+                                <Card 
+                                    ads={ads}
+                                    key={ads._id.$oid} 
+                                />
                             ))}
                         </div>
                     ) : (
