@@ -37,7 +37,7 @@ const TelaMain = () => {
 
       <section className="conteiner_sources">
 
-        <div className="section__div__access">
+        <div className="section__div__access" style={{ color: 'aliceblue' }}>
 
           <div className="section__div__view">
 

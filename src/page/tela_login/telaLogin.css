@@ -197,27 +197,3 @@ label[for="input_avatar"] {
     color: rgb(229, 229, 229);
 
 }
-
-
-a:link {
-    color: green;
-    text-decoration: none;
-  }
-  
-
-  a:visited {
-    color: blue;
-    text-decoration: none;
-  }
-  
-
-  a:hover { 
-    color: rgb(79, 27, 126);
-    text-decoration: none;
-  }
-  
-
-  a:active {
-    color: yellow;
-    text-decoration: none;
-  }

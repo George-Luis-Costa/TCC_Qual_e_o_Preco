@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 import Card from '../../components/Card'
 import '../search_produto/style.css'
 import SearchIcon from '../../assets/search.svg'
@@ -31,6 +32,9 @@ const Home = () => {
     return (
         <div className='app'>
             <h1 className='h1'>Pesquisar...</h1>
+
+
+
             <div className='search'>
                 <input type="text"
                     placeholder='Buscar Produtos'
@@ -42,9 +46,15 @@ const Home = () => {
                     alt='Busca'
                     onClick={() => searchData(
                         `/product/search?name=${String(buscaTermo)}`
-                        )}
+                    )}
                 />
             </div>
+
+            <Link to={"/Main"} className='container'>
+                <button className='movie buttonVoltar'>
+                    <span className='spanButton'>Voltar</span>
+                </button>
+            </Link>
 
             {
                 (ads?.length > 0)
@@ -60,7 +70,7 @@ const Home = () => {
                         </div>
                         // <div className='container'>
                         //     <Card ads = {obj}/>
-                        
+
                     )
             }
         </div>
