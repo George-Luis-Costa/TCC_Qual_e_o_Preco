@@ -164,3 +164,23 @@ body, html {
   line-height: 1.5;
   text-decoration: none;
 }
+
+a:link {
+  color: green;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(0, 0, 85);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(79, 27, 126);
+  text-decoration: none;
+}
+
+a:active {
+  color: yellow;
+  text-decoration: none;
+}

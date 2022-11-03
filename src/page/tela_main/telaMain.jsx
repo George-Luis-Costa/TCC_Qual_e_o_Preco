@@ -26,18 +26,24 @@ const TelaMain = () => {
     <div className="tela-box" style={{ height: '600px' }}>
 
       <header style={{ color: 'aliceblue' }}>
-        <h1>Bem - Vindo</h1>
-        <br />
+        <h1 className='h1' style={{fontSize:"40px"}}>Qual é o Preço?</h1>
+      
         <figure>
-          <img src={perfil} alt="Perfil" width="70px" height="70px" />
+          <Link to={"/"}>
+            <div className='hover-image'>
+              <img className='img' src={perfil} alt="Perfil" title='Voltar para a tela de Login' width="70px" height="70px" />
+              <span class="texto">Sair</span>
+            </div>
+          </Link>
         </figure>
+
       </header>
 
       <br />
 
       <section className="conteiner_sources">
 
-        <div className="section__div__access">
+        <div className="section__div__access" style={{ color: 'aliceblue' }}>
 
           <div className="section__div__view">
 

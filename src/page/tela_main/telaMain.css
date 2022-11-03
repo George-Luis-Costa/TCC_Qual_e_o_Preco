@@ -10,6 +10,35 @@
     border-radius: 20px;
 }
 
+.hover-image {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: auto;
+}
+
+.hover-image span {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 200px;
+    width: 100%;
+    line-height: 45px;
+    height: 45px;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    font-family: "Roboto";
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.hover-image:hover span {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+}
 .conteiner_sources {
     position: relative;
     font-size: small;
@@ -29,19 +58,24 @@
     border-radius: 20px;
     padding: 15px 20px;
     box-shadow: 10px 5px 5px black;
+    text-shadow: 0 0 0.2em aliceblue, 0 0 0.2em aliceblue,
+        0 0 0.2em aliceblue
 }
 
 .section__div__access {
-    background-color: aliceblue;
+    background-color: darkgrey;
     border-radius: 20px;
     padding: 20px 30px;
     box-shadow: 10px 5px 5px black;
+    text-shadow: -1px 0 black, 0 1px black,
+        1px 0 black, 0 -1px black;
 }
 
-.section__access__h1{
+.section__access__h1 {
     font-size: 20px;
 }
-.section__access__h2{
+
+.section__access__h2 {
     font-size: 15px;
 }
 
@@ -68,7 +102,7 @@
 .section__view--align {
     display: flex;
     flex-flow: column;
-    
+
 }
 
 .section__view__button {
@@ -102,24 +136,4 @@
     position: relative;
     left: 50%;
     transform: translate(-25%);
-}
-
-a:link {
-    color: green;
-    text-decoration: none;
-}
-
-a:visited {
-    color: rgb(0, 0, 85);
-    text-decoration: none;
-}
-
-a:hover {
-    color: rgb(79, 27, 126);
-    text-decoration: none;
-}
-
-a:active {
-    color: yellow;
-    text-decoration: none;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
+import { Link } from "react-router-dom"
 import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
@@ -24,7 +25,13 @@ const Dia = () => {
     return (
         <div className='app'>
             <h1 className='h1'>Anúncios do Dia...</h1>
-            
+
+            <Link to={"/Main"} className='container'>
+                <button className='movie buttonVoltar'>
+                    <span className='spanButton'>Voltar</span>
+                </button>
+            </Link>
+
             {
                 (ads?.length > 0)
                     ? (

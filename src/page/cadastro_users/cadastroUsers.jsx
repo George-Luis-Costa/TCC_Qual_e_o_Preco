@@ -20,10 +20,10 @@ const Cadastro = () => {
             },
             body: JSON.stringify(user),
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
     }
 
     const submit = (e) => {
@@ -32,12 +32,12 @@ const Cadastro = () => {
     }
 
     function handleChange(e) {
-        setData({ ...data, [e.target.id]: e.target.value})
+        setData({ ...data, [e.target.id]: e.target.value })
         console.log(data)
     }
 
     return (
-        <div className="tela-box" style={{ height: '600px' }}>
+        <div className="tela-box" style={{ height: '550px' }}>
             <h1 className="titulo_cadastro">SIGN UP</h1>
             <br /><br />
 
@@ -63,15 +63,15 @@ const Cadastro = () => {
                     <br />
                     <input type="password" name="password" id="password" onChange={handleChange} className="input-cadastro" required />
                     <br /><br />
-
                 </div>
-                
+
+                <br /><br />
+
                 <div className="create_account">
                     <Link to="/" title="Voltar para o menu anterior" className="cadastro_link--submit">Voltar</Link>
                     <br />
                     <input type="submit" defaultValue="Criar Conta" className="button_submit button_bg transitionBg input_submit--criarConta" title="Ao clicar seus dados serão enviados" />
                 </div>
-
             </form>
         </div>
     )
