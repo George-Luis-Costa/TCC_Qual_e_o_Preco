@@ -130,7 +130,7 @@ const TelaMain = () => {
           <div className="section__information--align-header">
             <img src={Totais} alt="total" width="30px" height="30px" />
             <h1>Números de Anúncios totais</h1>
-            <Link to={'/Dia'}>
+            <Link to={'/Search'}>
               <h2 className='buttonInfo transitionBg' style={{ fontSize: "30px", display: "flex", justifyContent: "center" }}>{info.total}</h2>
             </Link>
           </div>
