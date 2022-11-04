@@ -30,7 +30,7 @@ export const CadastroProduto = () => {
     }
 
     const submit = (e) => {
-       const product = {
+        const product = {
             "name": name,
             "brand": marca,
             "price": preco,
@@ -104,11 +104,11 @@ export const CadastroProduto = () => {
                     <button className="login-form-btn">Enviar</button>
                 </div>
 
-                <div className="login-form-btn">
-                    <Link className="txt2" to="/Main">
-                        Voltar
-                    </Link>
-                </div>
+                <Link to="/Main" >
+                    <div className="login-form-btn">
+                        <button className="login-form-btn">Voltar</button>
+                    </div>
+                </Link>
             </form>
         </LayoutComponents>
     );

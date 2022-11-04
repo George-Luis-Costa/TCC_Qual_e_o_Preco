@@ -17,6 +17,38 @@
     margin: auto;
 }
 
+.buttonMain {
+    position: absolute;
+    left: 190px;
+    width: 75px;
+    /* margin-top: 20px; */
+    border-radius: 20px;
+    padding: 5px;
+    transform: translate(50%);
+    box-shadow: 10px 5px 5px black;
+}
+
+.buttonInfo {
+    width: 75px;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.buttonInfo:hover {
+    background-color: rgb(79, 27, 126);
+    cursor: pointer;
+    transform: scale(1.2);
+    transform: translate(0%, -30%);
+}
+
+.buttonMain:hover {
+    background-color: rgb(79, 27, 126);
+    cursor: pointer;
+    transform: scale(1.2);
+    transform: translate(50%, -30%);
+}
+
 .hover-image span {
     position: absolute;
     display: block;
