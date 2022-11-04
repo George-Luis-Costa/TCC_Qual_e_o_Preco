@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-//import Card from '../../components/Card'
 import '../tela_main/telaMain.css'
+import { FcAdvance, FcSearch } from 'react-icons/fc'
+import { MdAddComment, MdOutlineAddTask, MdOutlineAddCircle } from 'react-icons/md'
 
 //imagens
 //import SearchIcon from '../../assets/search.svg'
@@ -25,27 +26,27 @@ const TelaMain = () => {
   const [info, setInfo] = useState([])
 
   useEffect(() => {
-      
+
     fetch(API_URL + "/product/info", {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    .then((res) => res.json())
-    .then((data) => {
-      setInfo(data)
-    })
-    .catch((err) => console.log(err))
-      
+      .then((res) => res.json())
+      .then((data) => {
+        setInfo(data)
+      })
+      .catch((err) => console.log(err))
+
   }, [])
 
   return (
-    <div className="tela-box" style={{ height: '630px' }}>
+    <div className="tela-box" style={{ height: '675px' }}>
 
       <header style={{ color: 'aliceblue' }}>
-        <h1 className='h1' style={{fontSize:"40px"}}>Qual é o Preço?</h1>
-      
+        <h1 className='h1' style={{ fontSize: "40px" }}>Qual é o Preço?</h1>
+
         <figure>
           <Link to={"/"}>
             <div className='hover-image'>
@@ -69,42 +70,58 @@ const TelaMain = () => {
               <h1 className="section__access__h1">Markets e mais</h1>
               <h2 className="section__access__h2">Promoção do dia</h2>
             </div>
-            <button className="section__view__button">
-              <Link to="/Dia">visualizar</Link>
-            </button>
+
+            <Link to="/Dia">
+              <button className="buttonMain transitionBg ">
+                Visualizar
+              </button>
+            </Link>
           </div>
 
           <div className="section__div__view" style={{ marginBottom: '10px' }}>
             <div className="section__view--align">
               <h1 className="section__access__h1">Markets e mais</h1>
-              <h2 className="section__access__h2">Promoção do semanal</h2>
+              <h2 className="section__access__h2">Promoção Semanal</h2>
             </div>
-            <button className="section__view__button">
-              <Link to="/Semana">visualizar</Link>
-            </button>
+
+            <Link to="/Semana">
+              <button className="buttonMain transitionBg">
+                Visualizar
+              </button>
+            </Link>
           </div>
 
           <div className="section__div__view">
             <div className="section__view--align">
               <h1>Pesquisar Anúncios</h1>
             </div>
+
             <div className="round">
               <Link to="/Search">
-                <img alt="entrar" className="section__img--align" src={entrar} />
+                {/* <img alt="entrar" className="section__img--align" src={entrar} /> */}
+                <div className='buttonMain transitionBg' style={{ display: "flex", justifyContent: "center" }}>
+                  < FcSearch size={28} />
+                </div>
               </Link>
             </div>
           </div>
 
-          <div className="section__div__view" style={{ margin: 0 }}>
+          <br />
+
+          <div className="section__div__view">
             <div className="section__view--align">
               <h1>Adicionar Anúncios</h1>
             </div>
+
             <div className="round">
               <Link to="/CadastroProdutos">
-                <img alt="entrar" className="section__img--align" src={entrar} />
+                {/* <img alt="entrar" className="section__img--align" src={entrar} /> */}
+                <div className='buttonMain transitionBg' style={{ display: "flex", justifyContent: "center" }}>
+                  < MdAddComment size={28} />++
+                </div>
               </Link>
             </div>
-          </div>
+          </div> <br />
         </div>
 
         <br />
@@ -113,7 +130,9 @@ const TelaMain = () => {
           <div className="section__information--align-header">
             <img src={Totais} alt="total" width="30px" height="30px" />
             <h1>Números de Anúncios totais</h1>
-            <h2 style={{fontSize:"20px"}}>{info.total}</h2>
+            <Link to={'/Dia'}>
+              <h2 className='buttonInfo transitionBg' style={{ fontSize: "30px", display: "flex", justifyContent: "center" }}>{info.total}</h2>
+            </Link>
           </div>
 
           <br />
@@ -121,7 +140,7 @@ const TelaMain = () => {
             <div>
               <img className="section__information__img" src={brilho} alt="img" width="30px" height="30px" />
               <h1>Do Dia</h1>
-              <h2 className="section__information__img--align">{info.today}</h2>
+              <h2 className="section__information__img--align ">{info.today}</h2>
             </div>
 
             <div>
