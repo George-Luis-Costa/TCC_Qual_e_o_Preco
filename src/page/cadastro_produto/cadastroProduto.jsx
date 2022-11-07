@@ -101,12 +101,12 @@ export const CadastroProduto = () => {
                 </div>
 
                 <div className="container-login-form-btn">
-                    <button className="login-form-btn">Enviar</button>
+                    <button className="login-form-btn button_submit">Enviar</button>
                 </div>
 
                 <Link to="/Main" >
                     <div className="login-form-btn">
-                        <button className="login-form-btn">Voltar</button>
+                        <button className="login-form-btn button_submit">Voltar</button>
                     </div>
                 </Link>
             </form>
