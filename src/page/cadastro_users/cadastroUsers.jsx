@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import Card from '../../components/Card'
-import SearchIcon from '../../assets/search.svg'
 import perfil from '../../images/perfil.png'
 
 
@@ -26,9 +24,14 @@ const Cadastro = () => {
             })
     }
 
+
     const submit = (e) => {
         e.preventDefault()
         createUser(data)
+        document.getElementById('name').value = ''
+        document.getElementById('last_name').value = ''
+        document.getElementById('email').value = ''
+        document.getElementById('password').value = ''
     }
 
     function handleChange(e) {
@@ -68,7 +71,7 @@ const Cadastro = () => {
                 <br /><br />
 
                 <div className="create_account">
-                    <Link to="/" title="Voltar para o menu anterior" className="cadastro_link--submit">Voltar</Link>
+                    <Link to="/" title="Voltar para o menu anterior" className="button_submit button_bg transitionBg cadastro_link--submit">Voltar</Link>
                     <br />
                     <input type="submit" defaultValue="Criar Conta" className="button_submit button_bg transitionBg input_submit--criarConta" title="Ao clicar seus dados serão enviados" />
                 </div>

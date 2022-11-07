@@ -63,9 +63,9 @@
     position: relative;
     width: 250px;
     border-radius: 20px;
+    /* border: none; */
     padding: 5px 10px;
     margin-top: 5px;
-
 }
 
 #senha {
@@ -115,6 +115,12 @@
     box-shadow: 10px 5px 5px black;
     position: relative;
     margin-top: 5px;
+
+}
+
+.button_submit:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
 }
 
 input::placeholder {
