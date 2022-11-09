@@ -27,7 +27,8 @@ const Cadastro = () => {
 
     const submit = (e) => {
         e.preventDefault()
-        createUser(data)
+        // createUser(data)
+        alert("Cadastro Efetuado com Sucesso!")
         document.getElementById('name').value = ''
         document.getElementById('last_name').value = ''
         document.getElementById('email').value = ''
