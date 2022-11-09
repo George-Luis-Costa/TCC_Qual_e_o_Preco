@@ -29,6 +29,15 @@ export const CadastroProduto = () => {
             })
     }
 
+    function resetar() {
+        setName("")
+        setMarca("")
+        setData("")
+        setEndereco("")
+        setPreco("")
+        alert("Os Campos do Formulário foram Resetados!")
+    }
+
     const submit = (e) => {
         const product = {
             "name": name,
@@ -38,7 +47,11 @@ export const CadastroProduto = () => {
             "post_date": data,
         }
         e.preventDefault()
-        createProduct(product)
+        // createProduct(product)
+        setName("")
+        setMarca("")
+        setPreco("")
+        alert("Produto Enviado!")
     }
 
     return (
@@ -52,6 +65,8 @@ export const CadastroProduto = () => {
 
                 <div className="wrap-input">
                     <input
+                        required
+                        id='name'
                         className={name !== "" ? "has-val input" : "input"}
                         type="name"
                         value={name}
@@ -62,8 +77,9 @@ export const CadastroProduto = () => {
 
                 <div className="wrap-input">
                     <input
+                        id='marca'
                         className={marca !== "" ? "has-val input" : "input"}
-                        type="name"
+                        type="text"
                         value={marca}
                         onChange={(e) => setMarca(e.target.value)}
                     />
@@ -72,8 +88,10 @@ export const CadastroProduto = () => {
 
                 <div className="wrap-input">
                     <input
+                        required
+                        id='data'
                         className={data !== "" ? "has-val input" : "input"}
-                        type="name"
+                        type="text"
                         value={data}
                         onChange={(e) => setData(e.target.value)}
                     />
@@ -82,8 +100,10 @@ export const CadastroProduto = () => {
 
                 <div className="wrap-input">
                     <input
+                        required
+                        id='endereco'
                         className={endereco !== "" ? "has-val input" : "input"}
-                        type="name"
+                        type="text"
                         value={endereco}
                         onChange={(e) => setEndereco(e.target.value)}
                     />
@@ -92,8 +112,10 @@ export const CadastroProduto = () => {
 
                 <div className="wrap-input">
                     <input
+                        required
+                        id='preco'
                         className={preco !== "" ? "has-val input" : "input"}
-                        type="name"
+                        type="text"
                         value={preco}
                         onChange={(e) => setPreco(e.target.value)}
                     />
@@ -101,14 +123,18 @@ export const CadastroProduto = () => {
                 </div>
 
                 <div className="container-login-form-btn">
-                    <button className="login-form-btn button_submit">Enviar</button>
+                    <button type='submit' className="login-form-btn button_submit">Enviar</button>
                 </div>
 
                 <Link to="/Main" >
-                    <div className="login-form-btn">
-                        <button className="login-form-btn button_submit">Voltar</button>
+                    <div className="container-login-form-btn">
+                        <button type='button' className="login-form-btn button_submit">Voltar</button>
                     </div>
                 </Link>
+
+                <div className="login-form-btn">
+                    <button type='button' className="login-form-btn button_submit" onClick={resetar}>Reset Total</button>
+                </div>
             </form>
         </LayoutComponents>
     );
