@@ -11,13 +11,14 @@ const Card = ({ ads }) => {
             <div>
                 <img src={img} alt="" />
             </div>
-            
+
 
 
             <div>
                 <span>{ads.brand}</span>
-                <h3>{ads.name} - R$ {ads.price}</h3>
-                <p style={{color:"aliceblue"}}>{ads.address}</p>
+                <h3>{ads.name}</h3>
+                <h3>R$ {ads.price}</h3>
+                <p style={{ color: "aliceblue" }}>{ads.address}</p>
             </div>
         </div>
     )
