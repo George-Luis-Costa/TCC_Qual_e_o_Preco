@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import Card from '../../components/Card'
-import '../search_produto/style.css'
+import '../../styles/style.css'
 import SearchIcon from '../../assets/search.svg'
 import { toast } from 'react-toastify'
 

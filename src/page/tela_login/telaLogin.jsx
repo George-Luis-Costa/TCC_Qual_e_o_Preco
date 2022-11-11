@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate } from "react-router-dom"
 import Card from '../../components/Card'
-import '../tela_login/telaLogin.css'
+import '../../styles/telaLogin.css'
 import SearchIcon from '../../assets/search.svg'
 import images from '../../images/icon_login.png'
 import { toast } from 'react-toastify'
@@ -27,7 +27,12 @@ const TelaLogin = () => {
   const toastId = React.useRef(null)
 
   function authUser(user) {
+
     toastId.current = toast.loading("Logando...")
+    toast.update(toastId.current, {
+      closeButton: true,
+    })
+
     fetch(API_URL + "/user", {
       method: 'GET',
       headers: {
@@ -35,7 +40,6 @@ const TelaLogin = () => {
       },
     })
       .then((res) => {
-
         if (res.status == '202') {
           setValid(auth(res.status))
 
@@ -44,7 +48,7 @@ const TelaLogin = () => {
             type: "success",
             isLoading: false,
             closeButton: true,
-            autoClose: 3000
+            autoClose: 3000,
           })
           return res.json()
         } else {
