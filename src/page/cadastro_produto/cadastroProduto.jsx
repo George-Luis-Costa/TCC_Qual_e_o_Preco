@@ -97,7 +97,7 @@ export const CadastroProduto = () => {
                         value={marca}
                         onChange={(e) => setMarca(e.target.value)}
                     />
-                    <span className="focus-input" data-placeholder="Marca..."></span>
+                    <span className="focus-input" data-placeholder="Marca... (opcional)"></span>
                 </div>
 
                 <div className="wrap-input">

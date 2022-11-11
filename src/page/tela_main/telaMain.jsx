@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import '../tela_main/telaMain.css'
+import '../../styles/telaMain.css'
 import { FcAdvance, FcSearch } from 'react-icons/fc'
 import { MdAddComment, MdOutlineAddTask, MdOutlineAddCircle } from 'react-icons/md'
 import { toast, ToastContainer } from 'react-toastify'
@@ -30,6 +30,7 @@ const TelaMain = () => {
   const [info, setInfo] = useState([])
 
   useEffect(() => {
+
     toastId.current = toast.loading("Buscando atualizações...")
 
     fetch(API_URL + "/product/info", {
