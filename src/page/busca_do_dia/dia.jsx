@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
 import { Link } from "react-router-dom"
+import { toast } from 'react-toastify'
 //import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
@@ -8,22 +9,47 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const Dia = () => {
 
+    const toastId = React.useRef(null)
+
     const [ads, setAds] = useState([])
 
     useEffect(() => {
-        
-      fetch(API_URL + "/product/day", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        setAds(data)
-      })
-      .catch((err) => console.log(err))
-        
+
+        toastId.current = toast.loading("Buscando...")
+
+        fetch(API_URL + "/product/day", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setAds(data)
+                if (data.length === 0) {
+                    // toast.info("Anúncio(s) não encontrado(s)!")
+                    toast.update(toastId.current, {
+                        render: "Anúncio(s) não encontrado(s)!",
+                        type: "info",
+                        isLoading: false,
+                        closeButton: true,
+                        autoClose: true
+                    })
+                }
+                else {
+                    // toast.success("Anúncio(s) encontrado(s)!")
+                    toast.update(toastId.current, {
+                        render: "Anúncio(s) encontrado(s)!",
+                        type: "success",
+                        isLoading: false,
+                        closeButton: true,
+                        autoClose: true
+                    })
+                }
+            })
+            .catch((err) => console.log(err))
+
+
     }, [])
 
     return (
@@ -40,10 +66,10 @@ const Dia = () => {
                 (ads?.length > 0)
                     ? (
                         <div className='container'>
-                            {ads.map((ads) => (   
-                                <Card 
-                                    ads={ads} 
-                                    key = {ads._id.$oid}
+                            {ads.map((ads) => (
+                                <Card
+                                    ads={ads}
+                                    key={ads._id.$oid}
                                 />
                             ))}
                         </div>

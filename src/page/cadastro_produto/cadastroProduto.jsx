@@ -4,11 +4,15 @@ import Card from '../../components/Card'
 import LayoutComponents from '../../components/LayoutComponents'
 import SearchIcon from '../../assets/search.svg'
 import perfil from '../../images/perfil.png'
+import { toast } from 'react-toastify'
 
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 export const CadastroProduto = () => {
+
+    const toastId = React.useRef(null)
+
     const [name, setName] = useState("");
     const [marca, setMarca] = useState("");
     const [data, setData] = useState("");
@@ -16,6 +20,7 @@ export const CadastroProduto = () => {
     const [preco, setPreco] = useState("");
 
     function createProduct(product) {
+        toastId.current = toast.loading("Buscando...")
         fetch(API_URL + "/product", {
             method: 'POST',
             headers: {
@@ -25,7 +30,16 @@ export const CadastroProduto = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
+                toast.update(toastId.current, {
+                    render: "Produto Enviado!",
+                    type: "success",
+                    isLoading: false,
+                    closeButton: true,
+                    autoClose: true
+                })
+                // alert("Produto Enviado!")
+                // toast.success("Produto Enviado!")
             })
     }
 
@@ -35,7 +49,8 @@ export const CadastroProduto = () => {
         setData("")
         setEndereco("")
         setPreco("")
-        alert("Os Campos do Formulário foram Resetados!")
+        // alert("Os Campos do Formulário foram Resetados!")
+        toast.success("Os campos do formulário foram resetados!")
     }
 
     const submit = (e) => {
@@ -47,11 +62,10 @@ export const CadastroProduto = () => {
             "post_date": data,
         }
         e.preventDefault()
-        // createProduct(product)
+        createProduct(product)
         setName("")
         setMarca("")
         setPreco("")
-        alert("Produto Enviado!")
     }
 
     return (
@@ -133,7 +147,7 @@ export const CadastroProduto = () => {
                 </Link>
 
                 <div className="login-form-btn">
-                    <button type='button' className="login-form-btn button_submit" onClick={resetar}>Reset Total</button>
+                    <button type='button' className="login-form-btn button_submit" onClick={resetar}>Reset</button>
                 </div>
             </form>
         </LayoutComponents>
