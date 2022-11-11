@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import perfil from '../../images/perfil.png'
+import { toast } from 'react-toastify'
 
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
@@ -8,9 +9,11 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const Cadastro = () => {
 
+    const toastId = React.useRef(null)
     const [data, setData] = useState({})
 
     function createUser(user) {
+        toastId.current = toast.loading("Buscando...")
         fetch(API_URL + "/user", {
             method: 'POST',
             headers: {
@@ -20,15 +23,25 @@ const Cadastro = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
+                // alert("Cadastro Efetuado com Sucesso!")
+                // toast.success("Cadastro Enviado com Sucesso!")
+                toast.update(toastId.current, {
+                    render: "Cadastro Enviado com Sucesso!",
+                    type: "success",
+                    isLoading: false,
+                    closeButton: true,
+                    autoClose: true
+                })
             })
+
     }
 
 
     const submit = (e) => {
         e.preventDefault()
-        // createUser(data)
-        alert("Cadastro Efetuado com Sucesso!")
+        createUser(data)
+
         document.getElementById('name').value = ''
         document.getElementById('last_name').value = ''
         document.getElementById('email').value = ''
@@ -37,7 +50,7 @@ const Cadastro = () => {
 
     function handleChange(e) {
         setData({ ...data, [e.target.id]: e.target.value })
-        console.log(data)
+        // console.log(data)
     }
 
     return (

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import '../tela_main/telaMain.css'
 import { FcAdvance, FcSearch } from 'react-icons/fc'
 import { MdAddComment, MdOutlineAddTask, MdOutlineAddCircle } from 'react-icons/md'
+import { toast, ToastContainer } from 'react-toastify'
+
 
 //imagens
 //import SearchIcon from '../../assets/search.svg'
@@ -23,9 +25,12 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const TelaMain = () => {
 
+  const toastId = React.useRef(null)
+
   const [info, setInfo] = useState([])
 
   useEffect(() => {
+    toastId.current = toast.loading("Buscando atualizações...")
 
     fetch(API_URL + "/product/info", {
       method: 'GET',
@@ -36,6 +41,26 @@ const TelaMain = () => {
       .then((res) => res.json())
       .then((data) => {
         setInfo(data)
+        if (data.length === 0) {
+          // toast.info("Anúncio(s) não encontrado(s)!")
+          toast.update(toastId.current, {
+            render: "Informações atualizadas - Não há anúncios Disponíveis!",
+            type: "info",
+            isLoading: false,
+            closeButton: true,
+            autoClose: true
+          })
+        }
+        else {
+          // toast.success("Anúncio(s) encontrado(s)!")
+          toast.update(toastId.current, {
+            render: "Informações atualizadas!",
+            type: "success",
+            isLoading: false,
+            closeButton: true,
+            autoClose: 1200
+          })
+        }
       })
       .catch((err) => console.log(err))
 

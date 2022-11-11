@@ -1,28 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import Card from '../../components/Card'
+import { toast } from 'react-toastify'
 //import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 const Semana = () => {
 
+    const toastId = React.useRef(null)
+
     const [ads, setAds] = useState([])
 
     useEffect(() => {
-        
-      fetch(API_URL + "/product/week", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        setAds(data)
-      })
-      .catch((err) => console.log(err))
-        
+        toastId.current = toast.loading("Buscando...")
+
+        fetch(API_URL + "/product/week", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setAds(data)
+                if (data.length === 0) {
+                    // toast.info("Anúncio(s) não encontrado(s)!")
+                    toast.update(toastId.current, {
+                        render: "Anúncio(s) não encontrado(s)!",
+                        type: "info",
+                        isLoading: false,
+                        closeButton: true,
+                        autoClose: true
+                    })
+                }
+                else {
+                    // toast.success("Anúncio(s) encontrado(s)!")
+                    toast.update(toastId.current, {
+                        render: "Anúncio(s) encontrado(s)!",
+                        type: "success",
+                        isLoading: false,
+                        closeButton: true,
+                        autoClose: true
+                    })
+                }
+            })
+            .catch((err) => console.log(err))
     }, [])
 
     return (
@@ -40,9 +63,9 @@ const Semana = () => {
                     ? (
                         <div className='container'>
                             {ads.map((ads) => (
-                                <Card 
+                                <Card
                                     ads={ads}
-                                    key={ads._id.$oid} 
+                                    key={ads._id.$oid}
                                 />
                             ))}
                         </div>
