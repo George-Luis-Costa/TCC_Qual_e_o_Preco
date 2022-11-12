@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import Card from '../../components/Card'
 import '../../styles/style.css'
 import SearchIcon from '../../assets/search.svg'
@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 
-const Home = () => {
+const Home = ({validation, setValidation}) => {
 
     const toastId = React.useRef(null)
     const [ads, setAds] = useState([])
@@ -42,12 +42,17 @@ const Home = () => {
         }
     }
     useEffect(() => {
+        if (!validation) {
+            return
+        }
+        
         searchData(`/product`)
 
     }, [])
 
     return (
         <div className='app'>
+            {!validation && (<Navigate to="/" />)}
             <h1 className='h1'>Pesquisar...</h1>
 
 

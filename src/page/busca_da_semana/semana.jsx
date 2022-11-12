@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import Card from '../../components/Card'
 import { toast } from 'react-toastify'
 //import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
-const Semana = () => {
+const Semana = ({validation, setValidation}) => {
 
     const toastId = React.useRef(null)
 
     const [ads, setAds] = useState([])
 
     useEffect(() => {
+
+        if (!validation) {
+            return
+        }
+
         toastId.current = toast.loading("Buscando...")
 
         fetch(API_URL + "/product/week", {
@@ -50,6 +55,7 @@ const Semana = () => {
 
     return (
         <div className='app'>
+            {!validation && (<Navigate to="/" />)}
             <h1 className='h1'>Anúncios da Semana...</h1>
 
             <Link to={"/Main"} className='container'>

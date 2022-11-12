@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import Card from '../../components/Card'
 import LayoutComponents from '../../components/LayoutComponents'
 import SearchIcon from '../../assets/search.svg'
@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
-export const CadastroProduto = () => {
+export const CadastroProduto = ({validation, setValidation}) => {
 
     const toastId = React.useRef(null)
 
@@ -70,6 +70,7 @@ export const CadastroProduto = () => {
 
     return (
         <LayoutComponents>
+            {!validation && (<Navigate to="/" />)}
             <form onSubmit={submit} className="login-form">
                 <span className="login-form-title"> Adicionar Produto </span>
                 <br />

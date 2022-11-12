@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import '../../styles/telaMain.css'
 import { FcAdvance, FcSearch } from 'react-icons/fc'
 import { MdAddComment, MdOutlineAddTask, MdOutlineAddCircle } from 'react-icons/md'
@@ -23,13 +23,17 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 //     post_date: "27/09/22"
 // }
 
-const TelaMain = () => {
+const TelaMain = ({validation, setValidation}) => {
 
   const toastId = React.useRef(null)
 
   const [info, setInfo] = useState([])
 
   useEffect(() => {
+
+    if (!validation) {
+      return
+    }
 
     toastId.current = toast.loading("Buscando atualizações...")
 
@@ -70,11 +74,13 @@ const TelaMain = () => {
   return (
     <div className="tela-box" style={{ height: '675px' }}>
 
+      {!validation && (<Navigate to="/" />)}
+
       <header style={{ color: 'aliceblue' }}>
         <h1 className='h1' style={{ fontSize: "40px" }}>Qual é o Preço?</h1>
 
         <figure>
-          <Link to={"/"}>
+          <Link onClick={() => setValidation(false)}>
             <div className='hover-image'>
               <img className='img' src={perfil} alt="Perfil" title='Voltar para a tela de Login' width="70px" height="70px" />
               <span className="texto">Sair</span>

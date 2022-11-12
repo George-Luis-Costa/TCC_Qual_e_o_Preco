@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card'
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { toast } from 'react-toastify'
 //import SearchIcon from '../../assets/search.svg'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 
-const Dia = () => {
+const Dia = ({validation, setValidation}) => {
 
     const toastId = React.useRef(null)
 
     const [ads, setAds] = useState([])
 
     useEffect(() => {
+
+        if (!validation) {
+            return
+        }
 
         toastId.current = toast.loading("Buscando...")
 
@@ -54,6 +58,7 @@ const Dia = () => {
 
     return (
         <div className='app'>
+            {!validation && (<Navigate to="/" />)}
             <h1 className='h1'>Anúncios do Dia...</h1>
 
             <Link to={"/Main"} className='container'>

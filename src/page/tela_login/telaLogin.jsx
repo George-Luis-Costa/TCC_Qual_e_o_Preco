@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, Navigate } from "react-router-dom"
 import Card from '../../components/Card'
 import '../../styles/telaLogin.css'
@@ -9,20 +9,10 @@ import { toast } from 'react-toastify'
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
 
-export const auth = (props) => {
-  // console.log("props:", props)
-  if (props == '202') {
-    return true
-  }
-  else {
-    return false
-  };
-};
-
-const TelaLogin = () => {
+const TelaLogin = ({validation, setValidation}) => {
 
   const [data, setData] = useState({})
-  const [valid, setValid] = useState(false)
+
 
   const toastId = React.useRef(null)
 
@@ -41,7 +31,7 @@ const TelaLogin = () => {
     })
       .then((res) => {
         if (res.status == '202') {
-          setValid(auth(res.status))
+          setValidation(true)
 
           toast.update(toastId.current, {
             render: "Logado com sucesso!",
@@ -120,7 +110,7 @@ const TelaLogin = () => {
 
       </form>
 
-      {valid && (<Navigate to="/Main" />)}
+      {validation && (<Navigate to="/Main" />)}
 
       <footer className="footer_index--sign">
         <p className='footerP'>Não registrado?</p>
