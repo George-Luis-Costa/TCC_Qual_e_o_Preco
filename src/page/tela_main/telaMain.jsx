@@ -16,12 +16,6 @@ import semana from '../../images/semana.png'
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
 
-// const obj = {
-//     name: "Gasolina (L)",
-//     brand: "Petrobras",
-//     price: "4,70",
-//     post_date: "27/09/22"
-// }
 
 const TelaMain = () => {
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import Card from '../../components/Card'
 import LayoutComponents from '../../components/LayoutComponents'
-import SearchIcon from '../../assets/search.svg'
-import perfil from '../../images/perfil.png'
 import { toast } from 'react-toastify'
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
 
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`

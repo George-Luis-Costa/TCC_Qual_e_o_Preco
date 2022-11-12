@@ -64,6 +64,7 @@ const Semana = () => {
                         <div className='container'>
                             {ads.map((ads) => (
                                 <Card
+                                    data-testid="cards"
                                     ads={ads}
                                     key={ads._id.$oid}
                                 />
