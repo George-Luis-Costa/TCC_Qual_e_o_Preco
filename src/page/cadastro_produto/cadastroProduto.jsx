@@ -3,10 +3,17 @@ import { Link } from "react-router-dom"
 import LayoutComponents from '../../components/LayoutComponents'
 import { toast } from 'react-toastify'
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
-
+import * as yup from 'yup';
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`
+
+const schema = yup.object().shape({
+    name: yup.string().max(45, "Tamanho máximo de 45 caracteres ").required(),
+    marca: yup.string().max(20, "Tamanho máximo de 20 caracteres "),
+    data: yup.date().required(),
+    endereco: yup.string().max(45, "Tamanho máximo de 45 caracteres ").required(),
+    preco: yup.number().max(8, "Tamanho máximo de 8 números ").required()
+})
 
 export const CadastroProduto = () => {
 
@@ -61,97 +68,118 @@ export const CadastroProduto = () => {
             "post_date": data,
         }
         e.preventDefault()
-        createProduct(product)
+        // createProduct(product)
         setName("")
         setMarca("")
         setPreco("")
     }
-
+    /* onSubmit={submit} */
     return (
         <LayoutComponents>
-            <form onSubmit={submit} className="login-form">
-                <span className="login-form-title"> Adicionar Produto </span>
-                <br />
-                {/* <span className="login-form-title">
-            <img src={jpIMG} alt="Jovem Programador" />
-          </span> */}
 
-                <div className="wrap-input">
-                    <input
-                        required
-                        id='name'
-                        className={name !== "" ? "has-val input" : "input"}
-                        type="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <span className="focus-input" data-placeholder="Nome..."></span>
-                </div>
+            <Formik
+                validationSchema={schema}
+                onSubmit={submit}
+                validateOnMount
+                initialValues={{
+                    name,
+                    marca,
+                    data,
+                    endereco,
+                    preco
+                }}
+            >
+                {({ values, isValid }) => (
+                    < Form className="login-form">
+                        <span className="login-form-title"> Adicionar Produto </span>
+                        <br />
+                        {/* <span className="login-form-title">
+                        <img src={jpIMG} alt="Jovem Programador" />
+                        </span> */}
 
-                <div className="wrap-input">
-                    <input
-                        id='marca'
-                        className={marca !== "" ? "has-val input" : "input"}
-                        type="text"
-                        value={marca}
-                        onChange={(e) => setMarca(e.target.value)}
-                    />
-                    <span className="focus-input" data-placeholder="Marca... (opcional)"></span>
-                </div>
+                        <div className="wrap-input">
+                            <Field
+                                required
+                                name='name'
+                                className={name !== "" ? "has-val input" : "input"}
+                                type="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <ErrorMessage name="name" />
+                            <span className="focus-input" data-placeholder="Nome..."></span>
+                        </div>
 
-                <div className="wrap-input">
-                    <input
-                        required
-                        id='data'
-                        className={data !== "" ? "has-val input" : "input"}
-                        type="text"
-                        value={data}
-                        onChange={(e) => setData(e.target.value)}
-                    />
-                    <span className="focus-input" data-placeholder="Data..."></span>
-                </div>
+                        <div className="wrap-input">
+                            <Field
+                                name='marca'
+                                className={marca !== "" ? "has-val input" : "input"}
+                                type="text"
+                                value={marca}
+                                onChange={(e) => setMarca(e.target.value)}
+                            />
+                            <ErrorMessage name="marca" />
+                            <span className="focus-input" data-placeholder="Marca... (opcional)"></span>
+                        </div>
 
-                <div className="wrap-input">
-                    <input
-                        required
-                        id='endereco'
-                        className={endereco !== "" ? "has-val input" : "input"}
-                        type="text"
-                        value={endereco}
-                        onChange={(e) => setEndereco(e.target.value)}
-                    />
-                    <span className="focus-input" data-placeholder="Endereço..."></span>
-                </div>
+                        <div className="wrap-input">
+                            <Field
+                                required
+                                name='data'
+                                className={data !== "" ? "has-val input" : "input"}
+                                type="text"
+                                value={data}
+                                onChange={(e) => setData(e.target.value)}
+                            />
+                            <ErrorMessage name="data" />
+                            <span className="focus-input" data-placeholder="Data..."></span>
+                        </div>
 
-                <div className="wrap-input">
-                    <input
-                        required
-                        id='preco'
-                        className={preco !== "" ? "has-val input" : "input"}
-                        type="text"
-                        value={preco}
-                        onChange={(e) => setPreco(e.target.value)}
-                    />
-                    <span className="focus-input" data-placeholder="Preço..."></span>
-                </div>
+                        <div className="wrap-input">
+                            <Field
+                                required
+                                name='endereco'
+                                className={endereco !== "" ? "has-val input" : "input"}
+                                type="text"
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
+                            />
+                            <ErrorMessage name="endereco" />
+                            <span className="focus-input" data-placeholder="Endereço..."></span>
+                        </div>
 
-                <div className="container-login-form-btn">
-                    <button type='submit' className="login-form-btn button_submit">Enviar</button>
-                </div>
+                        <div className="wrap-input">
+                            <Field
+                                required
+                                name='preco'
+                                className={preco !== "" ? "has-val input" : "input"}
+                                type="text"
+                                value={preco}
+                                onChange={(e) => setPreco(e.target.value)}
+                            />
+                            <ErrorMessage name="preco" />
+                            <span className="focus-input" data-placeholder="Preço..."></span>
+                        </div>
 
-                <Link to="/Main" >
-                    <div className="container-login-form-btn">
-                        <button type='button' className="login-form-btn button_submit">Voltar</button>
-                    </div>
-                </Link>
+                        <div className="container-login-form-btn">
+                            <button type='submit' disabled={!isValid} className="login-form-btn button_submit">Enviar</button>
+                        </div>
 
-                <div className="login-form-btn">
-                    <button type='button' className="login-form-btn button_submit" onClick={resetar}>Reset</button>
-                </div>
-            </form>
-        </LayoutComponents>
-    );
-};
+                        <Link to="/Main" >
+                            <div className="container-login-form-btn">
+                                <button type='button' className="login-form-btn button_submit">Voltar</button>
+                            </div>
+                        </Link>
 
+                        <div className="login-form-btn">
+                            <button type='button' className="login-form-btn button_submit" onClick={resetar}>Reset</button>
+                        </div>
+                    </Form>
+
+                )}
+            </Formik>
+        </LayoutComponents >
+    )
+}
 
 export default CadastroProduto
