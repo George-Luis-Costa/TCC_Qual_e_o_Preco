@@ -59,9 +59,11 @@ export const CadastroProduto = () => {
 
         }),
         onSubmit: values => {
-            // alert(JSON.stringify(values, null, 2));
+            const res = window.confirm("Enviar os produtos inseridos?")
+            if (res == true) {
+                createProduct(values)
+            }
             // console.log(values)
-            createProduct(values)
         },
     });
 
