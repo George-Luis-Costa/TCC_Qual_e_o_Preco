@@ -24,6 +24,7 @@ const Semana = () => {
             .then((res) => res.json())
             .then((data) => {
                 setAds(data)
+                // console.log(data)
                 if (data.length === 0) {
                     // toast.info("Anúncio(s) não encontrado(s)!")
                     toast.update(toastId.current, {
