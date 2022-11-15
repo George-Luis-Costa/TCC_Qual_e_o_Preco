@@ -55,7 +55,7 @@ export const CadastroProduto = () => {
                 .max(45, 'No máximo 45 caracteres!')
                 .required("*Obrigatório"),
 
-            price: yup.number().max(1000, "*No máximo 4 dígitos (6 algarismos -> 1000.00").required("*Obrigatório").typeError("*Por favor coloque um número Válido. No máximo 4 dígitos (6 algarismos -> 1000.00"),
+            price: yup.number().max(1000, "*No máximo 4 dígitos (6 algarismos -> 1000.00)").required("*Obrigatório").typeError("*Por favor coloque um número Válido. No máximo 4 dígitos (6 algarismos -> 1000.00)"),
 
         }),
         onSubmit: values => {
