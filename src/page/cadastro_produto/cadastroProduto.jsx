@@ -88,6 +88,15 @@ export const CadastroProduto = () => {
                 })
                 // alert("Produto Enviado!")
                 // toast.success("Produto Enviado!")
+            }).catch((err) => {
+                console.log(err)
+                toast.update(toastId.current, {
+                    render: "Produto não enviado, erro de conexão! :(",
+                    type: "error",
+                    isLoading: false,
+                    closeButton: true,
+                    autoClose: 1200
+                })
             })
     }
 

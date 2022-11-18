@@ -57,8 +57,16 @@ const TelaMain = () => {
           })
         }
       })
-      .catch((err) => console.log(err))
-
+      .catch((err) => {
+        console.log(err)
+        toast.update(toastId.current, {
+          render: "Erro de conexão! :(",
+          type: "error",
+          isLoading: false,
+          closeButton: true,
+          autoClose: 1200
+        })
+      })
   }, [])
 
   return (

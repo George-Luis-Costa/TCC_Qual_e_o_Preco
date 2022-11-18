@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, Navigate } from "react-router-dom"
 import '../../styles/telaLogin.css'
 import images from '../../images/icon_login.png'
@@ -67,6 +67,14 @@ const TelaLogin = () => {
       }).catch(
         (err) => {
           console.log(err)
+          toast.update(toastId.current, {
+            render: "Erro de conexão! :(",
+            type: "error",
+            isLoading: false,
+            closeButton: true,
+            autoClose: 3000,
+          })
+          alert("Por favor tente novamente!")
         }
       )
   }
@@ -97,7 +105,7 @@ const TelaLogin = () => {
           className="input-login"
           id="email"
           name="email"
-          type="text"
+          type="email"
           placeholder="Email"
           required
           onChange={handleChange}
