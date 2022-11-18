@@ -68,7 +68,7 @@ export const CadastroProduto = () => {
     });
 
     function createProduct(product) {
-        toastId.current = toast.loading("Buscando...")
+        toastId.current = toast.loading("Adicionando...")
         fetch(API_URL + "/product", {
             method: 'POST',
             headers: {
