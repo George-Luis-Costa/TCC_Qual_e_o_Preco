@@ -51,6 +51,15 @@ const Cadastro = () => {
                 document.getElementById('last_name').value = ''
                 document.getElementById('email').value = ''
                 document.getElementById('password').value = ''
+            }).catch((err) => {
+                console.log(err)
+                toast.update(toastId.current, {
+                    render: "Cadastro não efetuado, erro de conexão! :(",
+                    type: "error",
+                    isLoading: false,
+                    closeButton: true,
+                    autoClose: 1200
+                })
             })
 
     }

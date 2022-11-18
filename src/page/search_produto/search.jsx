@@ -17,6 +17,16 @@ const Home = () => {
     const searchData = async (title) => {
         toastId.current = toast.loading("Buscando...")
         const response = await fetch(`${API_URL}${title}`, { method: 'GET' })
+            .catch((err) => {
+                console.log(err)
+                toast.update(toastId.current, {
+                    render: "Erro de conexão! :(",
+                    type: "error",
+                    isLoading: false,
+                    closeButton: true,
+                    autoClose: 1200
+                })
+            })
         const data = await response.json()
         setAds(data)
         // console.log(data)
@@ -28,7 +38,7 @@ const Home = () => {
                 isLoading: false,
                 closeButton: true,
                 autoClose: true
-              })
+            })
         }
         else {
             // toast.success("Anúncio(s) encontrado(s)!")
@@ -38,7 +48,7 @@ const Home = () => {
                 isLoading: false,
                 closeButton: true,
                 autoClose: true
-              })
+            })
         }
     }
     useEffect(() => {
