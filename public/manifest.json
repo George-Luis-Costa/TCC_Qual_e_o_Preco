@@ -1,9 +1,9 @@
 {
     "orientation": "any",
-    "name": "Calculadora React.Js",
-    "short_name": "Calculadora",
+    "name": "Qual é o Preço?",
+    "short_name": "Qual é o Preço?",
     "theme_color": "#8a2be2",
-    "background_color": "#474747",
+    "background_color": "#282828",
     "display": "standalone",
     "start_url": ".",
     "icons": [
