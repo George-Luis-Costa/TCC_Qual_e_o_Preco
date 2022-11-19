@@ -52,7 +52,7 @@ export const CadastroProduto = () => {
                 .required('*Obrigatório').typeError("*Por favor coloque a data no formato dd/mm/aa"),
 
             address: yup.string()
-                .max(45, 'No máximo 45 caracteres!')
+                .max(75, 'No máximo 75 caracteres!')
                 .required("*Obrigatório"),
 
             price: yup.number().max(1000, "*No máximo 4 dígitos (6 algarismos -> 1000.00)").required("*Obrigatório").typeError("*Por favor coloque um número Válido. No máximo 4 dígitos (6 algarismos -> 1000.00)"),
