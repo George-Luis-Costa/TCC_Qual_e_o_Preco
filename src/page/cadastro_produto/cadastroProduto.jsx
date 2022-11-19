@@ -86,6 +86,13 @@ export const CadastroProduto = () => {
                     closeButton: true,
                     autoClose: true
                 })
+                formik.resetForm({
+                    values: {
+                        name: '',
+                        brand: '',
+                        price: '',
+                    }
+                })
                 // alert("Produto Enviado!")
                 // toast.success("Produto Enviado!")
             }).catch((err) => {
