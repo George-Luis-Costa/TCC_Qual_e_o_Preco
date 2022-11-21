@@ -15,14 +15,18 @@ const validateStyle = {
 }
 
 // const currentDate = new Date().toLocaleDateString()
-const today = new Date().toLocaleDateString()
+const today = new Date()
+// const todayStringDate = new Date()
+// console.log(today)
 
 function parseDateString(value, originalValue) {
+    console.log(originalValue)
     const parsedDate = isDate(originalValue)
         ? originalValue
-        : parse(originalValue, "dd/mm/yyyy", new Date());
-
+        : parse(originalValue, "yyyy-mm-dd", new Date());
+    console.log(parsedDate)
     return parsedDate;
+
 }
 // **Validação Formulário
 
@@ -34,7 +38,7 @@ export const CadastroProduto = () => {
         initialValues: {
             name: '',
             brand: '',
-            post_date: '',
+            post_date: ``,
             address: '',
             price: '',
         },
@@ -49,7 +53,7 @@ export const CadastroProduto = () => {
             post_date: yup.date()
                 .transform(parseDateString)
                 .max(today, `*Por favor, no máximo a data atual: ${today} `)
-                .required('*Obrigatório').typeError("*Por favor coloque a data no formato dd/mm/aa"),
+                .required('*Obrigatório').typeError("*Por favor coloque a data no formato dd/mm/aaaa"),
 
             address: yup.string()
                 .max(75, 'No máximo 75 caracteres!')
@@ -159,8 +163,8 @@ export const CadastroProduto = () => {
                     <input
                         id="post_date"
                         name='post_date'
-                        className={formik.values.post_date !== "" ? "has-val input" : "input"}
-                        type="text"
+                        className={"has-val input"}
+                        type="date"
                         value={formik.values.post_date}
                         onBlur={formik.handleBlur}
                         onChange={formik.handleChange}
