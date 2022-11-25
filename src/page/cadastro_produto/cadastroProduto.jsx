@@ -124,9 +124,6 @@ export const CadastroProduto = () => {
       <form className="login-form" onSubmit={formik.handleSubmit}>
         <span className="login-form-title"> Adicionar Produto </span>
         <br />
-        {/* <span className="login-form-title">
-                        <img src={jpIMG} alt="Jovem Programador" />
-                        </span> */}
 
         <div className="wrap-input">
           <input
