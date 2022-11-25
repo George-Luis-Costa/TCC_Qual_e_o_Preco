@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 import LayoutComponents from '../../components/LayoutComponents'
 import { toast } from 'react-toastify'
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as yup from 'yup';
 import { parse, isDate } from 'date-fns';
 
@@ -23,7 +23,7 @@ function parseDateString(value, originalValue) {
     console.log(originalValue)
     const parsedDate = isDate(originalValue)
         ? originalValue
-        : parse(originalValue, "yyyy-mm-dd", new Date());
+        : parse(originalValue, "dd-mm-yyyy", new Date());
     console.log(parsedDate)
     return parsedDate;
 
@@ -64,7 +64,7 @@ export const CadastroProduto = () => {
         }),
         onSubmit: values => {
             const res = window.confirm("Enviar os produtos inseridos?")
-            if (res == true) {
+            if (res === true) {
                 createProduct(values)
             }
             // console.log(values)
