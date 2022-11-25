@@ -12,13 +12,9 @@ const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`;
 const validateStyle = {
   color: "red",
 };
-
-// const currentDate = new Date().toLocaleDateString()
+const currentDateString = new Date().toLocaleDateString()
 const today = new Date();
-// const todayStringDate = new Date()
-// console.log(today)
 
-// **Validação Formulário
 
 export const CadastroProduto = () => {
   const toastId = React.useRef(null);
@@ -41,7 +37,7 @@ export const CadastroProduto = () => {
 
       post_date: yup
         .date()
-        .max(today, `*Por favor, no máximo a data atual: ${today} `)
+        .max(today, `*Por favor, no máximo até a data atual: ${currentDateString} `)
         .required("*Obrigatório")
         .typeError("*Por favor coloque a data no formato dd/mm/aaaa"),
 
