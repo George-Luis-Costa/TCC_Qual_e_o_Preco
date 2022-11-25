@@ -27,7 +27,7 @@ export const CadastroProduto = () => {
     initialValues: {
       name: "",
       brand: "",
-      post_date: ``,
+      post_date: "",
       address: "",
       price: "",
     },
