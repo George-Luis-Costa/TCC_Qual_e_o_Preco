@@ -34,11 +34,16 @@ const Cadastro = () => {
             },
             body: JSON.stringify(user),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                // console.log(data)
-                // alert("Cadastro Efetuado com Sucesso!")
-                // toast.success("Cadastro Enviado com Sucesso!")
+            .then((res) => {
+                if (res.status === 409) {
+                    return toast.update(toastId.current, {
+                        render: "Não Cadastrado :(",
+                        type: "error",
+                        isLoading: false,
+                        closeButton: true,
+                        autoClose: true
+                    })
+                }
                 toast.update(toastId.current, {
                     render: "Cadastro Enviado com Sucesso!",
                     type: "success",
