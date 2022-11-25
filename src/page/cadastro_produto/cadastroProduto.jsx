@@ -73,7 +73,7 @@ export const CadastroProduto = () => {
       ...product,
       post_date: formatDate(product.post_date),
     };
-    console.log({ product });
+    // console.log({ product });
     toastId.current = toast.loading("Adicionando...");
     fetch(API_URL + "/product", {
         method: 'POST',
