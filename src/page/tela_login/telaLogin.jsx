@@ -90,7 +90,7 @@ const TelaLogin = () => {
 
 
   return (
-    <div className="tela-box" style={{ color: "aliceblue" }}>
+    <div className="tela-box-log" style={{ color: "aliceblue" }}>
       <h1 className="titulo_login">Bem - Vindo</h1>
       <img
         className="img"
@@ -122,8 +122,10 @@ const TelaLogin = () => {
         />
         <br /><br />
 
-        <button className="button button_default transitionBg">LOG IN</button>
-
+        <button type="submit" className="button button_default transitionBg">LOG IN</button>
+        <Link to="Main">
+          <button type="submit" className="button button_d2 transitionBg">Entre Sem Cadastro</button>
+        </Link>
       </form>
 
       {valid && (<Navigate to="/Main" />)}

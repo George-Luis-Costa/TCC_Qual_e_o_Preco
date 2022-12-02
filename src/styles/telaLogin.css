@@ -12,9 +12,9 @@
 }
 
 
-.tela-box {
+.tela-box-log {
     width: 420px;
-    height: 420px;
+    height: 430px;
     position: absolute;
     padding: 50px;
     top: 50%;
@@ -76,6 +76,17 @@
     position: absolute;
     left: 260px;
     width: 75px;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 5px;
+    transform: translate(50%);
+    box-shadow: 10px 5px 5px black;
+}
+
+.button_d2 {
+    position: absolute;
+    left: 80px;
+    /* width: 75px; */
     margin-top: 20px;
     border-radius: 20px;
     padding: 5px;
