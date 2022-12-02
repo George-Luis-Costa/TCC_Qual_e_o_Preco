@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { parse, isDate } from "date-fns";
+import { useState } from "react";
 
 const API_URL = `https://qualpreco-api.herokuapp.com/tcc-api`;
 
@@ -17,7 +18,9 @@ const today = new Date();
 
 
 export const CadastroProduto = () => {
+
   const toastId = React.useRef(null);
+  const [formValues, setformValues] = useState('')
 
   const formik = useFormik({
     initialValues: {
@@ -73,51 +76,57 @@ export const CadastroProduto = () => {
       ...product,
       post_date: formatDate(product.post_date),
     };
+    console.log(product)
     // console.log({ product });
     toastId.current = toast.loading("Adicionando...");
     fetch(API_URL + "/product", {
-        method: 'POST',
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        },
-        body: JSON.stringify(product),
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(product),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            // console.log(data)
-            toast.update(toastId.current, {
-                render: "Produto Enviado!",
-                type: "success",
-                isLoading: false,
-                closeButton: true,
-                autoClose: true
-            })
-            formik.resetForm({
-                values: {
-                    name: '',
-                    brand: '',
-                    price: '',
-                }
-            })
-            // alert("Produto Enviado!")
-            // toast.success("Produto Enviado!")
-        }).catch((err) => {
-            console.log(err)
-            toast.update(toastId.current, {
-                render: "Produto não enviado, erro de conexão! :(",
-                type: "error",
-                isLoading: false,
-                closeButton: true,
-                autoClose: 1200
-            })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        toast.update(toastId.current, {
+          render: "Produto Enviado!",
+          type: "success",
+          isLoading: false,
+          closeButton: true,
+          autoClose: true
         })
+        resetar()
+        // alert("Produto Enviado!")
+        // toast.success("Produto Enviado!")
+      }).catch((err) => {
+        console.log(err)
+        toast.update(toastId.current, {
+          render: "Produto não enviado, erro de conexão! :(",
+          type: "error",
+          isLoading: false,
+          closeButton: true,
+          autoClose: 1200
+        })
+      })
   }
+
+  // function resetParcial() {
+  //   formik.resetForm({
+  //     values: {
+  //       name: '',
+  //       brand: '',
+  //       price: '',
+  //     }
+  //   })
+  // }
 
   function resetar() {
     formik.resetForm();
     // alert("Os Campos do Formulário foram Resetados!")
     toast.success("Os campos do formulário foram resetados!");
   }
+
 
   return (
     <LayoutComponents>
