@@ -17,10 +17,9 @@ export const auth = (props) => {
   };
 };
 
-const TelaLogin = () => {
+const TelaLogin = ({validation, setValidation}) => {
 
   const [data, setData] = useState({})
-  const [valid, setValid] = useState(false)
 
   const toastId = React.useRef(null)
 
@@ -39,7 +38,7 @@ const TelaLogin = () => {
     })
       .then((res) => {
         if (res.status == '202') {
-          setValid(auth(res.status))
+          setValidation(true)
 
           toast.update(toastId.current, {
             render: "Logado com sucesso!",
@@ -128,7 +127,7 @@ const TelaLogin = () => {
         </Link>
       </form>
 
-      {valid && (<Navigate to="/Main" />)}
+      {validation && (<Navigate to="/Main" />)}
 
       <footer className="footer_index--sign">
         <p className='footerP'>Não registrado?</p>
