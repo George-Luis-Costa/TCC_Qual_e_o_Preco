@@ -17,11 +17,10 @@ const currentDateString = new Date().toLocaleDateString()
 const today = new Date();
 
 
-export const CadastroProduto = ({validaiton, setValidation}) => {
+export const CadastroProduto = ({ validaiton, setValidation }) => {
 
   const toastId = React.useRef(null);
-  const [formValues, setformValues] = useState('')
-
+  
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -130,126 +129,126 @@ export const CadastroProduto = ({validaiton, setValidation}) => {
 
   return (
     <LayoutComponents>
-      {!validaiton ? 
-        ( toast.error("Precisa estar conectado para cadastrar.", { autoClose: 1200
-            }), <Navigate to="/"/> ) 
-        : ( toast.success("Usuário Conectado.", { autoClose: 1200 }), <div>
+      {!validaiton ? (toast.error("Precisa estar conectado para cadastrar.",
+        {
+          autoClose: 2000
+        }), <Navigate to="/" />)
+        : <div>
 
-        <form className="login-form" onSubmit={formik.handleSubmit}>
-          <span className="login-form-title"> Adicionar Produto </span>
-          <br />
+          <form className="login-form" onSubmit={formik.handleSubmit}>
+            <span className="login-form-title"> Adicionar Produto </span>
+            <br />
 
-          <div className="wrap-input">
-            <input
-              id="name"
-              name="name"
-              className={formik.values.name !== "" ? "has-val input" : "input"}
-              type="text"
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-            />
-            <span className="focus-input" data-placeholder="Nome..."></span>
-            {formik.touched.name && formik.errors.name ? (
-              <div style={validateStyle}>{formik.errors.name}</div>
-            ) : null}
-          </div>
+            <div className="wrap-input">
+              <input
+                id="name"
+                name="name"
+                className={formik.values.name !== "" ? "has-val input" : "input"}
+                type="text"
+                value={formik.values.name}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                required
+              />
+              <span className="focus-input" data-placeholder="Nome..."></span>
+              {formik.touched.name && formik.errors.name ? (
+                <div style={validateStyle}>{formik.errors.name}</div>
+              ) : null}
+            </div>
 
-          <div className="wrap-input">
-            <input
-              id="brand"
-              name="brand"
-              className={formik.values.brand !== "" ? "has-val input" : "input"}
-              type="text"
-              value={formik.values.brand}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-            />
-            <span className="focus-input" data-placeholder="Marca..."></span>
-            {formik.touched.brand && formik.errors.brand ? (
-              <div style={validateStyle}>{formik.errors.brand}</div>
-            ) : null}
-          </div>
+            <div className="wrap-input">
+              <input
+                id="brand"
+                name="brand"
+                className={formik.values.brand !== "" ? "has-val input" : "input"}
+                type="text"
+                value={formik.values.brand}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+              />
+              <span className="focus-input" data-placeholder="Marca..."></span>
+              {formik.touched.brand && formik.errors.brand ? (
+                <div style={validateStyle}>{formik.errors.brand}</div>
+              ) : null}
+            </div>
 
-          <div className="wrap-input">
-            <input
-              id="post_date"
-              name="post_date"
-              className={"has-val input"}
-              type="date"
-              value={formik.values.post_date}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-            />
-            <span className="focus-input" data-placeholder="Data..."></span>
-            {formik.touched.post_date && formik.errors.post_date ? (
-              <div style={validateStyle}>{formik.errors.post_date}</div>
-            ) : null}
-          </div>
+            <div className="wrap-input">
+              <input
+                id="post_date"
+                name="post_date"
+                className={"has-val input"}
+                type="date"
+                value={formik.values.post_date}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                required
+              />
+              <span className="focus-input" data-placeholder="Data..."></span>
+              {formik.touched.post_date && formik.errors.post_date ? (
+                <div style={validateStyle}>{formik.errors.post_date}</div>
+              ) : null}
+            </div>
 
-          <div className="wrap-input">
-            <input
-              id="address"
-              name="address"
-              className={formik.values.address !== "" ? "has-val input" : "input"}
-              type="text"
-              value={formik.values.address}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-            />
-            <span className="focus-input" data-placeholder="Endereço..."></span>
-            {formik.touched.address && formik.errors.address ? (
-              <div style={validateStyle}>{formik.errors.address}</div>
-            ) : null}
-          </div>
+            <div className="wrap-input">
+              <input
+                id="address"
+                name="address"
+                className={formik.values.address !== "" ? "has-val input" : "input"}
+                type="text"
+                value={formik.values.address}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                required
+              />
+              <span className="focus-input" data-placeholder="Endereço..."></span>
+              {formik.touched.address && formik.errors.address ? (
+                <div style={validateStyle}>{formik.errors.address}</div>
+              ) : null}
+            </div>
 
-          <div className="wrap-input">
-            <input
-              id="price"
-              name="price"
-              className={formik.values.price !== "" ? "has-val input" : "input"}
-              type="text"
-              value={formik.values.price}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              required
-            />
-            <span className="focus-input" data-placeholder="Preço..."></span>
-            {formik.touched.price && formik.errors.price ? (
-              <div style={validateStyle}>{formik.errors.price}</div>
-            ) : null}
-          </div>
+            <div className="wrap-input">
+              <input
+                id="price"
+                name="price"
+                className={formik.values.price !== "" ? "has-val input" : "input"}
+                type="text"
+                value={formik.values.price}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                required
+              />
+              <span className="focus-input" data-placeholder="Preço..."></span>
+              {formik.touched.price && formik.errors.price ? (
+                <div style={validateStyle}>{formik.errors.price}</div>
+              ) : null}
+            </div>
 
-          <div className="container-login-form-btn">
-            <button type="submit" className="login-form-btn button_submit">
-              Enviar
-            </button>
-          </div>
+            <div className="container-login-form-btn">
+              <button type="submit" className="login-form-btn button_submit">
+                Enviar
+              </button>
+            </div>
 
-          <div className="container-login-form-btn">
-            <button
-              type="reset"
-              className="login-form-btn button_submit"
-              onClick={resetar}
-            >
-              Reset
-            </button>
-          </div>
-        </form>
+            <div className="container-login-form-btn">
+              <button
+                type="reset"
+                className="login-form-btn button_submit"
+                onClick={resetar}
+              >
+                Reset
+              </button>
+            </div>
+          </form>
 
-        <Link to="/Main">
-          <div className="container-login-form-btn">
-            <button type="button" className="login-form-btn button_submit">
-              Voltar
-            </button>
-          </div>
-        </Link>
-
+          <Link to="/Main">
+            <div className="container-login-form-btn">
+              <button type="button" className="login-form-btn button_submit">
+                Voltar
+              </button>
+            </div>
+          </Link>
         </div>
-      )}
+      }
     </LayoutComponents>
   );
 };
