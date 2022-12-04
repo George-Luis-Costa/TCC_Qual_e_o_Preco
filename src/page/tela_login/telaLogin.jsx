@@ -17,10 +17,9 @@ export const auth = (props) => {
   };
 };
 
-const TelaLogin = () => {
+const TelaLogin = ({validation, setValidation}) => {
 
   const [data, setData] = useState({})
-  const [valid, setValid] = useState(false)
 
   const toastId = React.useRef(null)
 
@@ -39,7 +38,7 @@ const TelaLogin = () => {
     })
       .then((res) => {
         if (res.status == '202') {
-          setValid(auth(res.status))
+          setValidation(true)
 
           toast.update(toastId.current, {
             render: "Logado com sucesso!",
@@ -90,7 +89,7 @@ const TelaLogin = () => {
 
 
   return (
-    <div className="tela-box" style={{ color: "aliceblue" }}>
+    <div className="tela-box-log" style={{ color: "aliceblue" }}>
       <h1 className="titulo_login">Bem - Vindo</h1>
       <img
         className="img"
@@ -122,11 +121,13 @@ const TelaLogin = () => {
         />
         <br /><br />
 
-        <button className="button button_default transitionBg">LOG IN</button>
-
+        <button type="submit" className="button button_default transitionBg">LOG IN</button>
+        <Link to="Main">
+          <button type="submit" className="button button_d2 transitionBg">Entre Sem Cadastro</button>
+        </Link>
       </form>
 
-      {valid && (<Navigate to="/Main" />)}
+      {validation && (<Navigate to="/Main" />)}
 
       <footer className="footer_index--sign">
         <p className='footerP'>Não registrado?</p>
