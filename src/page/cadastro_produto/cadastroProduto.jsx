@@ -129,7 +129,7 @@ export const CadastroProduto = ({ validaiton, setValidation }) => {
 
   return (
     <LayoutComponents>
-      {!validaiton ? (toast.error("Precisa estar conectado para cadastrar.",
+      {!validaiton ? (toast.error("Precisa estar logado para cadastrar produtos.",
         {
           autoClose: 2000
         }), <Navigate to="/" />)
